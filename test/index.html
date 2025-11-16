@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Trenažér s kontrolou chyb</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f9f9f9, #cce0ff);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    #game {
+      width: 90%;
+      max-width: 900px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 180px;
+      font-family: monospace;
+      font-size: 16px;
+      padding: 10px;
+      border: 2px solid #333;
+      border-radius: 8px;
+      resize: vertical;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      margin: 5px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #preview {
+      border: 2px solid #333;
+      border-radius: 8px;
+      padding: 10px;
+      min-height: 150px;
+      background-color: #f0f0f0;
+      margin-top: 10px;
+    }
+
+    .feedback {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .level {
+      display: none;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .correct {
+      color: green;
+    }
+
+    .wrong {
+      color: red;
+    }
+
+    .error-detail {
+      margin-top: 5px;
+      padding: 5px;
+      background-color: #ffe6e6;
+      border-left: 4px solid red;
+      white-space: pre-wrap;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>HTML Trenažér s kontrolou chyb</h1>
+
+  <div id="game">
+
+    <!-- Trenažér -->
+    <div class="level active" id="level0">
+      <h2>Trenažér</h2>
+      <p>Úkol: Vytvoř <code>&lt;h2&gt;</code> nadpis s textem "Ahoj HTML".</p>
+      <textarea id="editor0"></textarea>
+      <button onclick="checkLevel(0)">Zkontrolovat</button>
+      <div class="feedback" id="feedback0"></div>
+      <div class="error-detail" id="error0"></div>
+      <div id="preview0"></div>
+    </div>
+
+    <!-- Level 1 -->
+    <div class="level" id="level1">
+      <h2>Level 1 - Odstavec</h2>
+      <p>Úkol: Přidej <code>&lt;p&gt;</code> odstavec s textem "Toto je můj první odstavec".</p>
+      <textarea id="editor1"></textarea>
+      <button onclick="checkLevel(1)">Zkontrolovat</button>
+      <div class="feedback" id="feedback1"></div>
+      <div class="error-detail" id="error1"></div>
+      <div id="preview1"></div>
+    </div>
+
+    <!-- Level 2 -->
+    <div class="level" id="level2">
+      <h2>Level 2 - Seznam</h2>
+      <p>Úkol: Vytvoř <code>&lt;ul&gt;</code> seznam s 3 položkami libovolného textu.</p>
+      <textarea id="editor2"></textarea>
+      <button onclick="checkLevel(2)">Zkontrolovat</button>
+      <div class="feedback" id="feedback2"></div>
+      <div class="error-detail" id="error2"></div>
+      <div id="preview2"></div>
+    </div>
+
+    <!-- Test -->
+    <div class="level" id="level3">
+      <h2>Test</h2>
+      <p>Úkol: Vytvoř stránku s:</p>
+      <ul>
+        <li>Nadpis <code>&lt;h1&gt;</code> "Můj Test"</li>
+        <li>Odstavec <code>&lt;p&gt;</code> s libovolným textem</li>
+        <li>Seznam <code>&lt;ol&gt;</code> s 3 položkami</li>
+      </ul>
+      <textarea id="editor3"></textarea>
+      <button onclick="checkLevel(3)">Zkontrolovat</button>
+      <div class="feedback" id="feedback3"></div>
+      <div class="error-detail" id="error3"></div>
+      <div id="preview3"></div>
+    </div>
+
+  </div>
+
+  <script>
+    const levels = 4;
+
+    function runCode(editorId, previewId) {
+      const code = document.getElementById(editorId).value;
+      document.getElementById(previewId).innerHTML = code;
+    }
+
+    function checkLevel(level) {
+      const editor = document.getElementById('editor'+level);
+      const feedback = document.getElementById('feedback'+level);
+      const errorBox = document.getElementById('error'+level);
+      const preview = 'preview'+level;
+
+      const userCode = editor.value.toLowerCase();
+      let correct = false;
+      let errors = "";
+
+      if(level === 0) {
+        if(userCode.includes('<h2>') && userCode.includes('ahoj html')) {
+          correct = true;
+        } else {
+          errors = "Chybí <h2> tag nebo text 'Ahoj HTML'.\nSprávný příklad:\n<h2>Ahoj HTML</h2>";
+        }
+      } else if(level === 1) {
+        if(userCode.includes('<p>') && userCode.includes('toto je můj první odstavec')) {
+          correct = true;
+        } else {
+          errors = "Chybí <p> tag nebo text 'Toto je můj první odstavec'.\nSprávný příklad:\n<p>Toto je můj první odstavec</p>";
+        }
+      } else if(level === 2) {
+        const liCount = (userCode.match(/<li>/g) || []).length;
+        if(userCode.includes('<ul>') && liCount >= 3) {
+          correct = true;
+        } else {
+          errors = "Chybí <ul> tag nebo máš méně než 3 <li> položky.\nSprávný příklad:\n<ul>\n  <li>Položka 1</li>\n  <li>Položka 2</li>\n  <li>Položka 3</li>\n</ul>";
+        }
+      } else if(level === 3) {
+        const liCount = (userCode.match(/<li>/g) || []).length;
+        if(userCode.includes('<h1>') && userCode.includes('můj test') &&
+           userCode.includes('<p>') && userCode.includes('<ol>') && liCount >= 3) {
+          correct = true;
+        } else {
+          errors = "Chybí některý z tagů (<h1>, <p>, <ol>) nebo máš méně než 3 <li> položky.\nSprávný příklad:\n<h1>Můj Test</h1>\n<p>Tvůj text</p>\n<ol>\n  <li>První</li>\n  <li>Druhý</li>\n  <li>Třetí</li>\n</ol>";
+        }
+      }
+
+      runCode(editor.id, preview);
+
+      if(correct) {
+        feedback.textContent = "Správně! Postupuješ dál.";
+        feedback.className = "feedback correct";
+        errorBox.textContent = "";
+        if(level+1 < levels) {
+          document.getElementById('level'+level).classList.remove('active');
+          document.getElementById('level'+(level+1)).classList.add('active');
+        } else {
+          feedback.textContent = "Gratulace! Dokončil(a) jsi všechny úrovně!";
+        }
+      } else {
+        feedback.textContent = "Chyba! Zkontroluj svůj kód a oprav chyby.";
+        feedback.className = "feedback wrong";
+        errorBox.textContent = errors;
+      }
+    }
+
+    document.getElementById('editor0').value = `<h2>Ahoj HTML</h2>`;
+  </script>
+</body>
+</html>
