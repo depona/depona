@@ -32,20 +32,16 @@
         }
 
         header {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
             background:#fff;
-            padding:10px 0;
+            padding:10px 24px;
             box-shadow:0 2px 6px rgba(0,0,0,0.05);
             position:sticky;
             top:0;
             z-index:1000;
-        }
-
-        .header-inner {
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            flex-wrap:wrap;
-            padding:0 24px;
+            flex-wrap: wrap;
         }
 
         .brand {
@@ -67,7 +63,7 @@
             list-style:none;
             padding:0;
             margin:0;
-            flex-wrap:wrap;
+            flex-wrap: wrap;
         }
 
         nav a {
@@ -139,6 +135,10 @@
             border-radius:var(--radius);
         }
 
+        .section:nth-child(even) {
+            flex-direction:row-reverse;
+        }
+
         .section img {
             flex:1;
             max-width:100%;
@@ -189,10 +189,6 @@
         }
 
         .sponsors {
-            display:flex;
-            flex-wrap:wrap;
-            justify-content:center;
-            gap:40px;
             margin-top:60px;
             padding:24px;
             background:#f0f8ff;
@@ -201,13 +197,22 @@
         }
 
         .sponsors img {
-            max-height:60px;
+            max-height:80px;
             object-fit:contain;
             transition:transform 0.3s;
         }
 
         .sponsors a:hover img {
             transform:scale(1.1);
+        }
+
+        .sponsors-logos {
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            gap:40px;
+            align-items:center;
+            margin-top:20px;
         }
 
         .history {
@@ -224,9 +229,11 @@
             margin-bottom:16px;
         }
 
-        .history-item img {
+        .history-item svg {
             width:36px;
             height:36px;
+            fill:var(--primary);
+            flex-shrink:0;
         }
 
         footer {
@@ -256,12 +263,10 @@
         }
 
         @media(max-width:900px){
-            .hero,
-            .section {
+            .hero, .section {
                 flex-direction:column;
             }
-            .hero img,
-            .section img {
+            .hero img, .section img {
                 height:auto;
             }
             .footer-flex {
@@ -277,7 +282,7 @@
             .cta { padding:10px 16px; font-size:16px; }
             .service h3 { font-size:18px; }
             .service p { font-size:14px; }
-            .sponsors img { max-height:50px; }
+            .sponsors img { max-height:65px; }
             .history h2 { font-size:24px; }
             .history-item p { font-size:14px; }
         }
@@ -286,29 +291,27 @@
 
 <body>
 
-<header>
-    <div class="header-inner">
-        <div class="brand">
-            <img src="/depona/files/png/main-logo.png" alt="DE.PO.NA logo" class="logo-img">
-            <div>
-                <p style="margin:0;font-size:18px;font-weight:700;">DE.PO.NA Praha, s.r.o.</p>
-                <div style="color:var(--muted);font-weight:600;font-size:12px;">
-                    Likvidace odpadu • Kontejnerová doprava
-                </div>
+<header class="wrap">
+    <div class="brand">
+        <img src="/depona/files/png/main-logo.png" alt="DE.PO.NA logo" class="logo-img">
+        <div>
+            <h1 style="margin:0;font-size:18px;">DE.PO.NA Praha, s.r.o.</h1>
+            <div style="color:var(--muted);font-weight:600;font-size:12px;">
+                Likvidace odpadu • Kontejnerová doprava
             </div>
         </div>
-
-        <nav>
-            <ul>
-                <li><a href="/depona/">Úvod</a></li>
-                <li><a href="/depona/o-nas">O nás</a></li>
-                <li><a href="/depona/sluzby">Služby</a></li>
-                <li><a href="/depona/rozhodnuti">Rozhodnutí</a></li>
-                <li><a href="/depona/cenik">Ceník</a></li>
-                <li><a href="/depona/kontakt">Kontakt</a></li>
-            </ul>
-        </nav>
     </div>
+
+    <nav>
+        <ul>
+            <li><a href="/depona/">Úvod</a></li>
+            <li><a href="/depona/o-nas">O nás</a></li>
+            <li><a href="/depona/sluzby">Služby</a></li>
+            <li><a href="/depona/rozhodnuti">Rozhodnutí</a></li>
+            <li><a href="/depona/cenik">Ceník</a></li>
+            <li><a href="/depona/kontakt">Kontakt</a></li>
+        </ul>
+    </nav>
 </header>
 
 <main class="wrap">
@@ -342,11 +345,11 @@
     </section>
 
     <section class="sponsors">
-        <h2 style="text-align:center; margin-bottom:24px; color:var(--primary);">
+        <h2 style="text-align:center; margin-bottom:10px; color:var(--primary);">
             Spolupracující firmy
         </h2>
 
-        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:40px; align-items:center;">
+        <div class="sponsors-logos">
             <a href="https://praha.eu/" target="_blank">
                 <img src="/depona/files/png/companies/praha.png" alt="Hlavní město Praha">
             </a>
@@ -371,7 +374,7 @@
     <section class="history">
         <h2>Naše historie</h2>
 
-        <div class="history-item">
+       <div class="history-item">
             <img src="/depona/files/svg/foundation.svg" alt="Založení firmy">
             <div class="history-text">
                 <p><strong>1990 – Založení firmy:</strong> V lednu 1990 založil Bohuslav Bílek firmu zaměřenou na nákladní autodopravu.</p>
@@ -386,7 +389,7 @@
         </div>
 
         <div class="history-item">
-            <img src="/depona/files/svg/new-establishment.svg" alt="Nová provozovna">
+            <img src="depona/files/svg/new-establishment.svg" alt="Nová provozovna">
             <div class="history-text">
                 <p><strong>2001 – Druhá provozovna:</strong> V červnu 2001 byla otevřena druhá provozovna v ulici Gen. Šišky, Praha 4 – Modřany. Tato provozovna je dnes uzavřena.</p>
             </div>
