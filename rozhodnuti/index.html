@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DE.PO.NA Praha, s.r.o. — Rozhodnutí</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="/depona/files/png/favicon.png">
+<style>
+:root{
+    --primary:#007BFF;
+    --accent:#FFD700;
+    --muted:#6b7280;
+    --bg:#ffffff;
+    --card:#f8faff;
+    --radius:12px;
+    font-family:'Inter',sans-serif;
+}
+body{
+    margin:0;
+    background:var(--bg);
+    color:#0f172a;
+    line-height:1.6;
+}
+.wrap{
+    max-width:1200px;
+    margin:0 auto;
+    padding:24px;
+}
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#fff;
+    padding:10px 24px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.05);
+    position:sticky;
+    top:0;
+    z-index:1000;
+    flex-wrap:wrap;
+}
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.logo-img{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+    border-radius:10px;
+}
+nav ul{
+    display:flex;
+    gap:20px;
+    list-style:none;
+    padding:0;
+    margin:0;
+    flex-wrap:wrap;
+}
+nav a{
+    color:var(--muted);
+    text-decoration:none;
+    font-weight:600;
+    transition:color 0.3s;
+}
+nav a:hover{
+    color:var(--primary);
+}
+.decision-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+    gap:24px;
+    margin-top:40px;
+}
+.decision-card{
+    background:var(--card);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:0 6px 20px rgba(2,6,23,0.08);
+    transition:transform 0.3s;
+}
+.decision-card:hover{
+    transform:translateY(-5px);
+}
+.decision-card img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-bottom:1px solid #ddd;
+}
+.decision-card p{
+    padding:12px 16px;
+    font-size:14px;
+    color:var(--muted);
+}
+footer{
+    margin-top:60px;
+    padding:36px 24px;
+    text-align:center;
+    color:#ffffff;
+    font-size:14px;
+    background:#003366;
+}
+footer a{
+    color:#ffd700;
+    text-decoration:none;
+}
+footer a:hover{
+    text-decoration:underline;
+}
+.footer-flex{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+.footer-contact{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    font-size:13px;
+    align-items:center;
+}
+.footer-contact span{
+    display:flex;
+    align-items:center;
+    gap:4px;
+}
+.footer-contact img{
+    width:16px;
+    height:16px;
+}
+@media(max-width:900px){
+    .decision-grid{
+        grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .footer-flex{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+}
+@media(max-width:600px){
+    header{
+        flex-direction:column;
+        text-align:center;
+        gap:10px;
+    }
+    nav ul{
+        justify-content:center;
+    }
+    .logo-img{
+        width:70px;
+        height:70px;
+    }
+    .decision-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+<body>
+<header class="wrap">
+    <div class="brand">
+        <img src="/depona/files/png/main-logo.png" alt="DE.PO.NA logo" class="logo-img">
+        <div>
+            <h1 style="margin:0;font-size:18px;">DE.PO.NA Praha, s.r.o.</h1>
+            <div style="color:var(--muted);font-weight:600;font-size:12px;">Likvidace odpadu • Kontejnerová doprava</div>
+        </div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="/depona/">Úvod</a></li>
+            <li><a href="/depona/o-nas">O nás</a></li>
+            <li><a href="/depona/sluzby">Služby</a></li>
+            <li><a href="/depona/rozhodnuti">Rozhodnutí</a></li>
+            <li><a href="/depona/cenik">Ceník</a></li>
+            <li><a href="/depona/kontakt">Kontakt</a></li>
+        </ul>
+    </nav>
+</header>
+<main class="wrap">
+    <h2 style="color:var(--primary); font-size:32px; margin-bottom:24px;">Rozhodnutí firmy</h2>
+    <p style="color:var(--muted); font-size:16px;">Zde naleznete aktuální rozhodnutí a usnesení související s naší činností. Kliknutím na obrázek si jej můžete prohlédnout v plné velikosti.</p>
+    <div class="decision-grid">
+        <div class="decision-card">
+            <a href="https://depona.cz/wp-content/uploads/2025/04/usneseni_2025_1.jpeg" target="_blank">
+                <img src="https://depona.cz/wp-content/uploads/2025/04/usneseni_2025_1.jpeg" alt="Usnesení 2025-1">
+            </a>
+            <p>Usnesení 2025 – č. 1</p>
+        </div>
+        <div class="decision-card">
+            <a href="https://depona.cz/wp-content/uploads/2025/04/usneseni_2025_2.jpeg" target="_blank">
+                <img src="https://depona.cz/wp-content/uploads/2025/04/usneseni_2025_2.jpeg" alt="Usnesení 2025-2">
+            </a>
+            <p>Usnesení 2025 – č. 2</p>
+        </div>
+    </div>
+</main>
+<footer>
+  <div class="footer-flex">
+    <div style="display:flex; gap:20px; flex-wrap:wrap;">
+      <a href="/depona/">Úvod</a>
+      <a href="/depona/o-nas">O nás</a>
+      <a href="/depona/sluzby">Služby</a>
+      <a href="/depona/rozhodnuti">Rozhodnutí</a>
+      <a href="/depona/cenik">Ceník</a>
+      <a href="/depona/kontakt">Kontakt</a>
+    </div>
+    <div class="footer-contact">
+      <span>
+        <img src="/depona/files/svg/telephone.svg" alt="telefon">
+        <a href="tel:+420777349447">+420 777 349 447</a>
+      </span>
+      <span>
+        <img src="/depona/files/svg/mail.svg" alt="email">
+        <a href="mailto:depona@depona.cz">depona@depona.cz</a>
+      </span>
+      <span>
+        <img src="/depona/files/svg/locality.svg" alt="lokalita">
+        <a href="https://mapy.cz/zakladni?source=firm&id=1964010" target="_blank">ulice Pramenná 3, 148 00 Praha 4 – Kunratice</a>
+      </span>
+    </div>
+  </div>
+  <div style="margin-top:20px; font-size:12px; color:#cccccc;">
+    &copy; 2025 DE.PO.NA Praha, s.r.o. Všechna práva vyhrazena.
+  </div>
+</footer>
+</body>
+</html>
