@@ -28,6 +28,7 @@ body{
     margin:0 auto;
     padding:24px;
 }
+
 header{
     display:flex;
     justify-content:space-between;
@@ -46,10 +47,10 @@ header{
     gap:10px;
 }
 .logo-img{
-    width:48px;
-    height:48px;
+    width:70px;
+    height:70px;
     object-fit:contain;
-    border-radius:8px;
+    border-radius:10px;
 }
 nav ul{
     display:flex;
@@ -68,6 +69,7 @@ nav a{
 nav a:hover{
     color:var(--primary);
 }
+
 .history{
     margin-top:60px;
     padding:24px;
@@ -84,17 +86,19 @@ nav a:hover{
     gap:16px;
     margin-bottom:24px;
     position:relative;
+    padding-left:4px;
 }
 .history-item img{
-    width:36px;
-    height:36px;
+    width:46px;
+    height:46px;
     flex-shrink:0;
-    margin-top:4px;
+    object-fit:contain;
+    margin-top:2px;
 }
 .history-item::before{
     content:'';
     position:absolute;
-    left:18px;
+    left:22px;
     top:0;
     bottom:0;
     width:2px;
@@ -102,10 +106,10 @@ nav a:hover{
     z-index:-1;
 }
 .history-item:first-child::before{
-    top:18px;
+    top:20px;
 }
 .history-item:last-child::before{
-    bottom:18px;
+    bottom:20px;
 }
 .history-text{
     flex:1;
@@ -115,6 +119,7 @@ nav a:hover{
     color:var(--muted);
     font-size:16px;
 }
+
 .section{
     display:flex;
     flex-wrap:wrap;
@@ -145,6 +150,7 @@ nav a:hover{
     font-size:16px;
     margin-bottom:16px;
 }
+
 .cta{
     background:var(--accent);
     color:#000;
@@ -159,6 +165,7 @@ nav a:hover{
 .cta:hover{
     opacity:0.85;
 }
+
 footer{
     margin-top:60px;
     padding:36px 24px;
@@ -214,12 +221,9 @@ footer a:hover{
     nav ul{
         justify-content:center;
     }
-    .history-item{
-        align-items:flex-start;
-    }
     .history-item img{
-        width:32px;
-        height:32px;
+        width:40px;
+        height:40px;
     }
     .section-text h2{
         font-size:24px;
